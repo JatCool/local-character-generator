@@ -1,0 +1,26 @@
+{
+  "name": "Rogue",
+  "role": "rogue",
+  "species": "human",
+  "gender": "female",
+  "age": "young",
+  "body_type": "slim athletic",
+  "hair": "short dark brown hair",
+  "expression": "confident",
+  "clothing": [
+    "dark green hood"
+  ],
+  "armor": [
+    "lightweight leather armor"
+  ],
+  "weapons": [
+    "small dagger"
+  ],
+  "setting": "medieval fantasy",
+  "view": "side",
+  "description": "Young female rogue, short dark brown hair, dark green hood, lightweight leather armor, small dagger, slim athletic body, confident expression, medieval fantasy game character.",
+  "avoid": [
+    "long sword",
+    "greatsword"
+  ]
+}

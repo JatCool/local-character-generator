@@ -1,0 +1,15 @@
+{
+  "name": "SkeletonWarrior",
+  "role": "warrior",
+  "species": "skeleton",
+  "body_type": "bony",
+  "face": "hollow eye sockets",
+  "armor": [
+    "dented iron helmet"
+  ],
+  "weapons": [
+    "rusty sword",
+    "cracked wooden shield"
+  ],
+  "description": "Undead skeleton warrior with a dented iron helmet, a rusty sword and a cracked wooden shield."
+}

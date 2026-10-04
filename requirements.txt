@@ -1,0 +1,4 @@
+# The generator needs only the Python standard library plus these two packages.
+# ComfyUI's portable Python (C:\AI\ComfyUI\python_embeded\python.exe) already has both, so nothing has to be installed.
+Pillow>=10.0
+numpy>=1.24

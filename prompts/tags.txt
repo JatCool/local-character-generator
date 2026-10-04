@@ -1,0 +1,22 @@
+# Tag-style prompt for CLIP-based models (SDXL, Pixel Art XL, Nova Pixels XL).
+# One segment per line, joined with ", ". A segment is dropped when all of its {fields} are empty.
+# Order matters: style first, then identity, then appearance, gear, pose/camera, constraints.
+{style} pixel art video game character, solo
+full body {subject}
+{view}
+{body_type} body
+{hair}
+{face}
+{expression} expression
+wearing {clothing}
+{armor}
+holding ({weapons}:1.3)
+{accessories}
+{colors} color scheme
+{details}
+{pose}
+{proportions}
+{setting} setting
+single character, centered, whole body visible from head to feet
+{palette}, clean hard pixel edges, crisp outline
+{background}, no shadow

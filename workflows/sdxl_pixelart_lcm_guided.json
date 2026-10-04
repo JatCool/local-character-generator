@@ -1,0 +1,197 @@
+{
+ "4": {
+  "class_type": "CheckpointLoaderSimple",
+  "_meta": {
+   "title": "Checkpoint"
+  },
+  "inputs": {
+   "ckpt_name": "{{checkpoint}}"
+  }
+ },
+ "10": {
+  "class_type": "LoraLoader",
+  "_meta": {
+   "title": "Pixel Art LoRA"
+  },
+  "inputs": {
+   "model": [
+    "4",
+    0
+   ],
+   "clip": [
+    "4",
+    1
+   ],
+   "lora_name": "{{lora}}",
+   "strength_model": "{{lora_strength}}",
+   "strength_clip": "{{lora_clip_strength}}"
+  }
+ },
+ "11": {
+  "class_type": "LoraLoader",
+  "_meta": {
+   "title": "LCM LoRA"
+  },
+  "inputs": {
+   "model": [
+    "10",
+    0
+   ],
+   "clip": [
+    "10",
+    1
+   ],
+   "lora_name": "{{lcm_lora}}",
+   "strength_model": "{{lcm_strength}}",
+   "strength_clip": "{{lcm_strength}}"
+  }
+ },
+ "12": {
+  "class_type": "ModelSamplingDiscrete",
+  "_meta": {
+   "title": "LCM sampling"
+  },
+  "inputs": {
+   "model": [
+    "11",
+    0
+   ],
+   "sampling": "lcm",
+   "zsnr": false
+  }
+ },
+ "6": {
+  "class_type": "CLIPTextEncode",
+  "_meta": {
+   "title": "Positive"
+  },
+  "inputs": {
+   "clip": [
+    "11",
+    1
+   ],
+   "text": "{{positive}}"
+  }
+ },
+ "7": {
+  "class_type": "CLIPTextEncode",
+  "_meta": {
+   "title": "Negative"
+  },
+  "inputs": {
+   "clip": [
+    "11",
+    1
+   ],
+   "text": "{{negative}}"
+  }
+ },
+ "20": {
+  "class_type": "LoadImage",
+  "_meta": {
+   "title": "Composition guide (side-view mannequin)"
+  },
+  "inputs": {
+   "image": "{{guide}}"
+  }
+ },
+ "21": {
+  "class_type": "ImageScale",
+  "_meta": {
+   "title": "Guide to generation size"
+  },
+  "inputs": {
+   "image": [
+    "20",
+    0
+   ],
+   "upscale_method": "bilinear",
+   "width": "{{width}}",
+   "height": "{{height}}",
+   "crop": "center"
+  }
+ },
+ "5": {
+  "class_type": "VAEEncodeTiled",
+  "_meta": {
+   "title": "Guide latent (tiled: low VRAM peak)"
+  },
+  "inputs": {
+   "pixels": [
+    "21",
+    0
+   ],
+   "vae": [
+    "4",
+    2
+   ],
+   "tile_size": 512,
+   "overlap": 64,
+   "temporal_size": 64,
+   "temporal_overlap": 8
+  }
+ },
+ "3": {
+  "class_type": "KSampler",
+  "_meta": {
+   "title": "Sampler"
+  },
+  "inputs": {
+   "model": [
+    "12",
+    0
+   ],
+   "positive": [
+    "6",
+    0
+   ],
+   "negative": [
+    "7",
+    0
+   ],
+   "latent_image": [
+    "5",
+    0
+   ],
+   "seed": "{{seed}}",
+   "steps": "{{steps}}",
+   "cfg": "{{cfg}}",
+   "sampler_name": "{{sampler}}",
+   "scheduler": "{{scheduler}}",
+   "denoise": "{{denoise}}"
+  }
+ },
+ "8": {
+  "class_type": "VAEDecodeTiled",
+  "_meta": {
+   "title": "Decode (tiled: avoids the 10 GB VRAM stall)"
+  },
+  "inputs": {
+   "samples": [
+    "3",
+    0
+   ],
+   "vae": [
+    "4",
+    2
+   ],
+   "tile_size": 512,
+   "overlap": 64,
+   "temporal_size": 64,
+   "temporal_overlap": 8
+  }
+ },
+ "9": {
+  "class_type": "SaveImage",
+  "_meta": {
+   "title": "Save"
+  },
+  "inputs": {
+   "images": [
+    "8",
+    0
+   ],
+   "filename_prefix": "{{prefix}}"
+  }
+ }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Necromancer",
+  "role": "necromancer",
+  "species": "human",
+  "gender": "female",
+  "age": "adult",
+  "body_type": "thin",
+  "face": "pale skin",
+  "expression": "cold",
+  "clothing": [
+    "dark purple hooded robe"
+  ],
+  "weapons": [
+    "staff topped with a skull"
+  ],
+  "colors": [
+    "purple",
+    "black",
+    "bone white"
+  ],
+  "description": "Thin pale necromancer woman in a dark purple hooded robe, holding a staff topped with a skull."
+}

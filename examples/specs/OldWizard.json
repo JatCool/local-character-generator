@@ -1,0 +1,18 @@
+{
+  "name": "OldWizard",
+  "role": "wizard",
+  "species": "human",
+  "gender": "male",
+  "age": "old",
+  "body_type": "tall thin",
+  "hair": "long grey beard",
+  "expression": "wise",
+  "clothing": [
+    "long blue robe",
+    "pointed blue wizard hat"
+  ],
+  "weapons": [
+    "gnarled wooden staff"
+  ],
+  "description": "Old tall thin wizard with a long grey beard, long blue robe, pointed hat and a gnarled wooden staff."
+}

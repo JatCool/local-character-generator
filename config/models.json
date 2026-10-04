@@ -1,0 +1,126 @@
+{
+  "_comment": "Model files used by the profiles and by the rig step. 'folder' is relative to <ComfyUI>/models. Install with: character-generator models install --group <group>. Nothing is downloaded automatically. 'sha256' (optional) is verified after a download.",
+  "models": [
+    {
+      "id": "sdxl-base",
+      "group": "sdxl",
+      "folder": "checkpoints",
+      "file": "sd_xl_base_1.0.safetensors",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors",
+      "size_bytes": 6938078334,
+      "license": "CreativeML Open RAIL++-M",
+      "source": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0"
+    },
+    {
+      "id": "pixel-art-xl",
+      "group": "sdxl",
+      "folder": "loras",
+      "file": "pixel-art-xl.safetensors",
+      "url": "https://huggingface.co/glabs/pixel-art-xl/resolve/main/pixel-art-xl.safetensors",
+      "size_bytes": 170543052,
+      "license": "CreativeML Open RAIL-M",
+      "source": "https://huggingface.co/glabs/pixel-art-xl"
+    },
+    {
+      "id": "lcm-lora-sdxl",
+      "group": "sdxl",
+      "folder": "loras",
+      "file": "lcm-lora-sdxl.safetensors",
+      "url": "https://huggingface.co/latent-consistency/lcm-lora-sdxl/resolve/main/pytorch_lora_weights.safetensors",
+      "size_bytes": 393855224,
+      "license": "OpenRAIL++",
+      "source": "https://huggingface.co/latent-consistency/lcm-lora-sdxl"
+    },
+    {
+      "id": "nova-pixels-xl-v3",
+      "group": "nova",
+      "folder": "checkpoints",
+      "file": "novaPixelsXL_v30.safetensors",
+      "url": "https://civitai.com/api/download/models/2481540?fileId=2370085",
+      "size_bytes": 6938481596,
+      "license": "Illustrious license (Civitai permissions: images may be sold)",
+      "source": "https://civitai.com/models/1856313/nova-pixels-xl"
+    },
+    {
+      "id": "krea2-turbo-fp8",
+      "group": "krea2",
+      "folder": "diffusion_models",
+      "file": "krea2_turbo_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+      "size_bytes": null,
+      "license": "Krea 2 license (free commercial use only under $1M revenue and 50 seats)",
+      "source": "https://huggingface.co/Comfy-Org/Krea-2"
+    },
+    {
+      "id": "krea2-text-encoder",
+      "group": "krea2",
+      "folder": "text_encoders",
+      "file": "qwen3vl_4b_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+      "size_bytes": null,
+      "license": "Apache 2.0 (Qwen3-VL)",
+      "source": "https://huggingface.co/Comfy-Org/Krea-2"
+    },
+    {
+      "id": "krea2-vae",
+      "group": "krea2",
+      "folder": "vae",
+      "file": "qwen_image_vae.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/vae/qwen_image_vae.safetensors",
+      "size_bytes": null,
+      "license": "Apache 2.0",
+      "source": "https://huggingface.co/Comfy-Org/Krea-2"
+    },
+    {
+      "id": "krea2-pixel-128",
+      "group": "krea2",
+      "folder": "loras",
+      "file": "k2-pixel128.safetensors",
+      "url": "https://huggingface.co/e-n-v-y/Krea-2-Pixel-Art/resolve/main/k2-pixel128.safetensors",
+      "size_bytes": null,
+      "license": "MIT",
+      "source": "https://huggingface.co/e-n-v-y/Krea-2-Pixel-Art"
+    },
+    {
+      "id": "krea2-pixel-64",
+      "group": "krea2",
+      "folder": "loras",
+      "file": "k2-pixel64.safetensors",
+      "url": "https://huggingface.co/e-n-v-y/Krea-2-Pixel-Art/resolve/main/k2-pixel64.safetensors",
+      "size_bytes": null,
+      "license": "MIT",
+      "source": "https://huggingface.co/e-n-v-y/Krea-2-Pixel-Art"
+    },
+    {
+      "id": "krea2-pixel-32",
+      "group": "krea2",
+      "folder": "loras",
+      "file": "k2-pixel32.safetensors",
+      "url": "https://huggingface.co/e-n-v-y/Krea-2-Pixel-Art/resolve/main/k2-pixel32.safetensors",
+      "size_bytes": null,
+      "license": "MIT",
+      "source": "https://huggingface.co/e-n-v-y/Krea-2-Pixel-Art"
+    },
+    {
+      "id": "sd15-base",
+      "group": "smoke",
+      "folder": "checkpoints",
+      "file": "v1-5-pruned-emaonly.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/resolve/main/v1-5-pruned-emaonly.safetensors",
+      "size_bytes": 4265146304,
+      "license": "CreativeML Open RAIL-M",
+      "source": "already installed for the AI Sprite Animation package; used only by the 'smoke' plumbing test"
+    },
+    {
+      "id": "sdpose-wholebody",
+      "group": "rig",
+      "folder": "checkpoints",
+      "file": "sdpose_wholebody_fp16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/SDPose/resolve/main/checkpoints/sdpose_wholebody_fp16.safetensors",
+      "size_bytes": 1916645792,
+      "sha256": "63d01f9a7494560693b24767f4469d59c9d3266b31ff0a253e74d1e611442721",
+      "license": "MIT (SDPose-Wholebody); U-Net from Stable Diffusion 2.x (CreativeML Open RAIL++-M)",
+      "source": "https://huggingface.co/Comfy-Org/SDPose (original: https://huggingface.co/teemosliang/SDPose-Wholebody, arXiv:2503.07740)"
+    }
+  ]
+}

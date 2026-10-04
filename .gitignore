@@ -1,0 +1,6 @@
+# Run outputs (raw generations, previews, benchmarks, ComfyUI log/pid) and per-machine config
+runs/
+__pycache__/
+*.pyc
+config/config.local.json
+output/

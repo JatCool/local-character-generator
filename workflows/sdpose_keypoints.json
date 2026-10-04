@@ -1,0 +1,10 @@
+{
+  "1": {"class_type": "CheckpointLoaderSimple", "_meta": {"title": "SDPose-Wholebody"},
+        "inputs": {"ckpt_name": "{{sdpose_model}}"}},
+  "2": {"class_type": "LoadImage", "_meta": {"title": "Character source (1024 px)"},
+        "inputs": {"image": "{{image}}"}},
+  "3": {"class_type": "SDPoseKeypointExtractor", "_meta": {"title": "Keypoints"},
+        "inputs": {"model": ["1", 0], "vae": ["1", 2], "image": ["2", 0], "batch_size": 1}},
+  "4": {"class_type": "PreviewAny", "_meta": {"title": "Keypoints as text (read by the generator)"},
+        "inputs": {"source": ["3", 0]}}
+}

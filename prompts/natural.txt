@@ -1,0 +1,18 @@
+# Sentence-style prompt for LLM text encoders (Krea 2 / Qwen3-VL, later FLUX.2).
+# One segment per line, joined with " ". A segment is dropped when all of its {fields} are empty.
+A {style} pixel art video game character: one single {subject}, shown full body from head to feet in {view}.
+{Pronoun} {has} a {body_type} build.
+{Pronoun} {has} {hair}.
+Face: {face}.
+{Pronoun} {has} a {expression} expression.
+{Pronoun} {is} wearing {clothing}.
+Armor: {armor}.
+{Pronoun} {is} holding {weapons}.
+Accessories: {accessories}.
+Main colors: {colors}.
+Details: {details}.
+It must not show: {avoid}.
+Pose: {pose}, {proportions}.
+The character belongs to a {setting} setting.
+Clean pixel art with a {palette}, hard pixel edges, a dark outline, flat shading and no anti-aliasing.
+The character is centered on a {background} with no shadow, no scenery, no text.

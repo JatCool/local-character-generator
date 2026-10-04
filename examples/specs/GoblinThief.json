@@ -1,0 +1,16 @@
+{
+  "name": "GoblinThief",
+  "role": "thief",
+  "species": "goblin",
+  "body_type": "small skinny",
+  "face": "green skin, long pointy ears, big nose",
+  "expression": "sneaky grin",
+  "clothing": [
+    "ragged brown tunic",
+    "torn hood"
+  ],
+  "weapons": [
+    "curved knife"
+  ],
+  "description": "Small skinny goblin thief with green skin, long pointy ears, a ragged brown tunic, torn hood and a curved knife."
+}

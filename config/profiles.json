@@ -1,0 +1,185 @@
+{
+  "_comment": "Generation profiles. 'params' fill the {{placeholders}} of the workflow; 'models' lists the ids (config/models.json) the profile needs. Benchmark results and the reasons for the defaults: docs/model-benchmark.md. 'guided_workflow' + 'guided_views': for these views the sampler starts from a mannequin guide (chargen/guide.py) instead of noise; 'denoise' sets how freely the model redraws it.",
+  "profiles": {
+    "quality": {
+      "description": "Default. SDXL 1.0 + Pixel Art XL v1.1 LoRA at 1024x1024. Side views start from a side-view mannequin guide (img2img, denoise 0.92) chosen for the character's build, which fixes the camera and facing; then pixel-art post-processing. See docs/model-benchmark.md.",
+      "workflow": "sdxl_pixelart.json",
+      "models": [
+        "sdxl-base",
+        "pixel-art-xl"
+      ],
+      "prompt_style": "tags",
+      "prompt_prefix": "pixel art",
+      "negative_file": "negative.txt",
+      "width": 1024,
+      "height": 1024,
+      "params": {
+        "checkpoint": "sd_xl_base_1.0.safetensors",
+        "lora": "pixel-art-xl.safetensors",
+        "lora_strength": 1.2,
+        "lora_clip_strength": 1.0,
+        "steps": 30,
+        "cfg": 6.0,
+        "sampler": "dpmpp_2m",
+        "scheduler": "karras",
+        "denoise": 0.92
+      },
+      "guided_workflow": "sdxl_pixelart_guided.json",
+      "guided_views": [
+        "side"
+      ]
+    },
+    "fast": {
+      "description": "Fast iteration. SDXL + Pixel Art XL + LCM LoRA, 8 steps; same side-view guide as quality.",
+      "workflow": "sdxl_pixelart_lcm.json",
+      "models": [
+        "sdxl-base",
+        "pixel-art-xl",
+        "lcm-lora-sdxl"
+      ],
+      "prompt_style": "tags",
+      "prompt_prefix": "pixel art",
+      "negative_file": "negative.txt",
+      "width": 1024,
+      "height": 1024,
+      "params": {
+        "checkpoint": "sd_xl_base_1.0.safetensors",
+        "lora": "pixel-art-xl.safetensors",
+        "lora_strength": 1.2,
+        "lora_clip_strength": 1.0,
+        "lcm_lora": "lcm-lora-sdxl.safetensors",
+        "lcm_strength": 1.0,
+        "steps": 8,
+        "cfg": 1.5,
+        "sampler": "lcm",
+        "scheduler": "sgm_uniform",
+        "denoise": 0.92
+      },
+      "guided_workflow": "sdxl_pixelart_lcm_guided.json",
+      "guided_views": [
+        "side"
+      ]
+    },
+    "nova": {
+      "description": "Alternative: Nova Pixels XL v3.0. Very clean pixels and white backgrounds, but anime look, front views and weak adherence to clothing descriptions.",
+      "workflow": "checkpoint_simple.json",
+      "models": [
+        "nova-pixels-xl-v3"
+      ],
+      "prompt_style": "tags",
+      "prompt_prefix": "masterpiece, best quality, amazing quality, very aesthetic, (pixel art, pixelated, sprite art:1.2)",
+      "negative_file": "negative.txt",
+      "width": 1024,
+      "height": 1024,
+      "params": {
+        "checkpoint": "novaPixelsXL_v30.safetensors",
+        "clip_skip": -2,
+        "steps": 28,
+        "cfg": 5.0,
+        "sampler": "euler_ancestral",
+        "scheduler": "normal"
+      }
+    },
+    "krea2": {
+      "description": "Alternative: cleanest pixels, most consistent identity across seeds, chibi style close to the player, but ignores side view, needs ~9.6 of 10 GB VRAM, ~21 s, license capped at $1M revenue. Krea 2 Turbo fp8 + Krea-2-Pixel-Art 128 LoRA.",
+      "workflow": "krea2_pixelart.json",
+      "models": [
+        "krea2-turbo-fp8",
+        "krea2-text-encoder",
+        "krea2-vae",
+        "krea2-pixel-128"
+      ],
+      "prompt_style": "natural",
+      "prompt_prefix": "pixel art.",
+      "negative_file": "",
+      "width": 1024,
+      "height": 1024,
+      "params": {
+        "unet": "krea2_turbo_fp8_scaled.safetensors",
+        "text_encoder": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "lora": "k2-pixel128.safetensors",
+        "lora_strength": 1.0,
+        "steps": 8,
+        "cfg": 1.0,
+        "sampler": "euler",
+        "scheduler": "simple"
+      },
+      "outline": false
+    },
+    "smoke": {
+      "description": "Plumbing test only (SD 1.5, 512x512, 12 steps). Not pixel-art quality.",
+      "workflow": "checkpoint_simple.json",
+      "models": [
+        "sd15-base"
+      ],
+      "prompt_style": "tags",
+      "prompt_prefix": "pixel art",
+      "negative_file": "negative.txt",
+      "width": 512,
+      "height": 512,
+      "params": {
+        "checkpoint": "v1-5-pruned-emaonly.safetensors",
+        "clip_skip": -1,
+        "steps": 12,
+        "cfg": 7.0,
+        "sampler": "euler",
+        "scheduler": "normal"
+      }
+    },
+    "krea2-64": {
+      "description": "Krea 2 Turbo + Krea-2-Pixel-Art 64x64 LoRA (benchmark variant; best used without the trigger word).",
+      "workflow": "krea2_pixelart.json",
+      "models": [
+        "krea2-turbo-fp8",
+        "krea2-text-encoder",
+        "krea2-vae",
+        "krea2-pixel-64"
+      ],
+      "prompt_style": "natural",
+      "prompt_prefix": "",
+      "negative_file": "",
+      "width": 1024,
+      "height": 1024,
+      "params": {
+        "unet": "krea2_turbo_fp8_scaled.safetensors",
+        "text_encoder": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "lora": "k2-pixel64.safetensors",
+        "lora_strength": 1.0,
+        "steps": 8,
+        "cfg": 1.0,
+        "sampler": "euler",
+        "scheduler": "simple"
+      },
+      "outline": false
+    },
+    "krea2-32": {
+      "description": "Krea 2 Turbo + Krea-2-Pixel-Art 32x32 LoRA (benchmark variant; grid is below the 64-128 targets).",
+      "workflow": "krea2_pixelart.json",
+      "models": [
+        "krea2-turbo-fp8",
+        "krea2-text-encoder",
+        "krea2-vae",
+        "krea2-pixel-32"
+      ],
+      "prompt_style": "natural",
+      "prompt_prefix": "pixel art.",
+      "negative_file": "",
+      "width": 1024,
+      "height": 1024,
+      "params": {
+        "unet": "krea2_turbo_fp8_scaled.safetensors",
+        "text_encoder": "qwen3vl_4b_fp8_scaled.safetensors",
+        "vae": "qwen_image_vae.safetensors",
+        "lora": "k2-pixel32.safetensors",
+        "lora_strength": 1.0,
+        "steps": 8,
+        "cfg": 1.0,
+        "sampler": "euler",
+        "scheduler": "simple"
+      },
+      "outline": false
+    }
+  }
+}

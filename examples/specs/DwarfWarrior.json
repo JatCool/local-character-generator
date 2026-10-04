@@ -1,0 +1,21 @@
+{
+  "name": "DwarfWarrior",
+  "role": "warrior",
+  "species": "dwarf",
+  "gender": "male",
+  "age": "middle-aged",
+  "body_type": "short stocky",
+  "hair": "braided red beard",
+  "expression": "stern",
+  "armor": [
+    "iron helmet",
+    "chainmail"
+  ],
+  "clothing": [
+    "brown leather boots"
+  ],
+  "weapons": [
+    "double-bladed battle axe"
+  ],
+  "description": "Stocky dwarf warrior with a braided red beard, iron helmet, chainmail and a double-bladed battle axe."
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ElfArcher",
+  "role": "archer",
+  "species": "elf",
+  "gender": "female",
+  "age": "young",
+  "body_type": "slender",
+  "hair": "long blonde ponytail",
+  "face": "pointed ears",
+  "expression": "focused",
+  "clothing": [
+    "green leather tunic",
+    "brown leggings"
+  ],
+  "weapons": [
+    "longbow"
+  ],
+  "accessories": [
+    "quiver of arrows on the back"
+  ],
+  "description": "Slender young elf archer with a long blonde ponytail, pointed ears, green leather tunic, a longbow and a quiver of arrows."
+}

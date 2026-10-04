@@ -1,0 +1,49 @@
+{
+  "_comment": "Tool settings. Relative paths are relative to the tool folder. Per-machine overrides: config/config.local.json (same keys, git-ignored) or CHARGEN_COMFYUI_URL / CHARGEN_COMFYUI_ROOT. A consuming project overrides output_root and defaults through its character-generator.project.json (see docs/integration.md). comfyui.extra_args only apply when this tool starts ComfyUI itself; --reserve-vram 1.5 keeps headroom for the desktop so a full card does not stall in the VAE decode.",
+  "comfyui": {
+    "url": "http://127.0.0.1:8188",
+    "root": "C:/AI/ComfyUI",
+    "auto_start": true,
+    "stop_if_started": true,
+    "start_timeout_seconds": 240,
+    "generation_timeout_seconds": 300,
+    "extra_args": [
+      "--disable-auto-launch",
+      "--reserve-vram",
+      "1.5"
+    ]
+  },
+  "output_root": "output",
+  "runs_dir": "runs",
+  "defaults": {
+    "_comment": "size = canvas height in px; char_height_ratio = body height / size (same scale for every character); feet_margin = empty rows below the feet; colors = palette size; outline_color = black | darkest; proportions = realistic | player.",
+    "profile": "quality",
+    "fast_profile": "fast",
+    "size": 48,
+    "char_height_ratio": 0.9375,
+    "feet_margin": 1,
+    "view": "side",
+    "colors": 24,
+    "outline": true,
+    "outline_color": "black",
+    "proportions": "realistic"
+  },
+  "rig": {
+    "_comment": "Rig data step (character-generator rig): SDPose joints, part map, hidden-pixel underlay. Radii are shares of the figure height at the 1024 px source. held_item_max_gap_px = the widest gap (sprite pixels) bridged between a hand and the item it holds, so the item stays attached when the arm moves.",
+    "sdpose_model": "sdpose_wholebody_fp16.safetensors",
+    "sdpose_workflow": "sdpose_keypoints.json",
+    "inpaint_workflow": "sdxl_inpaint_underlay.json",
+    "inpaint_profile": "quality",
+    "inpaint_denoise": 0.55,
+    "inpaint_positive_hint": "plain torso, clothing continues, no arm in front of the body",
+    "inpaint_negative_hint": "(arm:1.4), (hand:1.4), (sleeve:1.2), (fingers:1.2), holding, weapon in front of the body",
+    "mask_grow_px": 10,
+    "arm_radius": 0.035,
+    "hand_radius": 0.05,
+    "leg_radius": 0.055,
+    "torso_half_width": 0.085,
+    "min_keypoint_confidence": 0.2,
+    "robe_leg_swing_scale": 0.3,
+    "held_item_max_gap_px": 3
+  }
+}

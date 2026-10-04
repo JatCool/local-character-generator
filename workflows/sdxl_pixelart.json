@@ -1,0 +1,21 @@
+{
+  "4": {"class_type": "CheckpointLoaderSimple", "_meta": {"title": "Checkpoint"},
+        "inputs": {"ckpt_name": "{{checkpoint}}"}},
+  "10": {"class_type": "LoraLoader", "_meta": {"title": "Pixel Art LoRA"},
+         "inputs": {"model": ["4", 0], "clip": ["4", 1], "lora_name": "{{lora}}",
+                    "strength_model": "{{lora_strength}}", "strength_clip": "{{lora_clip_strength}}"}},
+  "6": {"class_type": "CLIPTextEncode", "_meta": {"title": "Positive"},
+        "inputs": {"clip": ["10", 1], "text": "{{positive}}"}},
+  "7": {"class_type": "CLIPTextEncode", "_meta": {"title": "Negative"},
+        "inputs": {"clip": ["10", 1], "text": "{{negative}}"}},
+  "5": {"class_type": "EmptyLatentImage", "_meta": {"title": "Latent"},
+        "inputs": {"width": "{{width}}", "height": "{{height}}", "batch_size": 1}},
+  "3": {"class_type": "KSampler", "_meta": {"title": "Sampler"},
+        "inputs": {"model": ["10", 0], "positive": ["6", 0], "negative": ["7", 0], "latent_image": ["5", 0],
+                   "seed": "{{seed}}", "steps": "{{steps}}", "cfg": "{{cfg}}",
+                   "sampler_name": "{{sampler}}", "scheduler": "{{scheduler}}", "denoise": 1.0}},
+  "8": {"class_type": "VAEDecode", "_meta": {"title": "Decode"},
+        "inputs": {"samples": ["3", 0], "vae": ["4", 2]}},
+  "9": {"class_type": "SaveImage", "_meta": {"title": "Save"},
+        "inputs": {"images": ["8", 0], "filename_prefix": "{{prefix}}"}}
+}

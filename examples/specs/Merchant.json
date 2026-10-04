@@ -1,0 +1,19 @@
+{
+  "name": "Merchant",
+  "role": "merchant",
+  "species": "human",
+  "gender": "male",
+  "age": "middle-aged",
+  "body_type": "chubby",
+  "hair": "bald head, brown moustache",
+  "expression": "friendly smile",
+  "clothing": [
+    "white shirt",
+    "brown apron",
+    "green trousers"
+  ],
+  "accessories": [
+    "coin pouch on the belt"
+  ],
+  "description": "Chubby friendly village merchant, bald with a brown moustache, white shirt, brown apron and a coin pouch, no weapon."
+}

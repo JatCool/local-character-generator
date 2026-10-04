@@ -1,0 +1,21 @@
+{
+  "name": "KnightWoman",
+  "role": "knight",
+  "species": "human",
+  "gender": "female",
+  "age": "adult",
+  "body_type": "athletic",
+  "hair": "short blonde hair",
+  "expression": "determined",
+  "armor": [
+    "shiny silver plate armor"
+  ],
+  "clothing": [
+    "red cape"
+  ],
+  "weapons": [
+    "longsword",
+    "round shield"
+  ],
+  "description": "Female knight in shiny silver plate armor with a red cape, short blonde hair, a longsword and a round shield."
+}

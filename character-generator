@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+# Local Character Generator launcher (Git Bash / POSIX shells).
+# Python: $CHARGEN_PYTHON if set, else ComfyUI's embedded Python, else python3/python on PATH.
+DIR="$(cd "$(dirname "$0")" && pwd)"
+PY="${CHARGEN_PYTHON:-}"
+if [ -z "$PY" ] && [ -x "/c/AI/ComfyUI/python_embeded/python.exe" ]; then PY="/c/AI/ComfyUI/python_embeded/python.exe"; fi
+if [ -z "$PY" ]; then PY="$(command -v python3 || command -v python)"; fi
+exec "$PY" -s "$DIR/character_generator.py" "$@"

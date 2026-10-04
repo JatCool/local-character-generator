@@ -1,0 +1,19 @@
+{
+  "name": "Barbarian",
+  "role": "barbarian",
+  "species": "human",
+  "gender": "male",
+  "age": "adult",
+  "body_type": "huge muscular",
+  "hair": "long black hair",
+  "expression": "angry",
+  "clothing": [
+    "fur kilt",
+    "fur boots",
+    "leather belt"
+  ],
+  "weapons": [
+    "heavy war hammer"
+  ],
+  "description": "Huge muscular barbarian with long black hair, bare chest, fur kilt and fur boots, carrying a heavy war hammer."
+}

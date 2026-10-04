@@ -1,0 +1,17 @@
+{
+  "name": "Ninja",
+  "role": "ninja",
+  "species": "human",
+  "gender": "male",
+  "age": "young",
+  "body_type": "lean athletic",
+  "face": "black face mask",
+  "clothing": [
+    "black ninja outfit",
+    "red sash belt"
+  ],
+  "weapons": [
+    "katana"
+  ],
+  "description": "Lean young ninja in a black outfit and face mask with a red sash, holding a katana."
+}
